@@ -19,9 +19,9 @@ end
 
 require 'http/2'
 require 'json'
-require 'coveralls'
-
-Coveralls.wear! if ENV["CI"]
+#require 'coveralls'
+#
+#Coveralls.wear! if ENV["CI"]
 
 include HTTP2
 include HTTP2::Header
