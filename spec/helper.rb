@@ -1,3 +1,22 @@
+begin
+  if RSpec::Core::Version::STRING.to_i >= 3
+    # Disable deprecation warnings for newer RSpec
+    RSpec.configure do |config|
+      config.expect_with :rspec do |c|
+        c.syntax = [:should, :expect]
+      end
+      config.mock_with :rspec do |c|
+        c.syntax = [:should, :expect]
+      end
+    end
+  end
+  module Kernel
+    def be_true() be_truthy; end
+    def be_false() be_falsey; end
+  end
+rescue Exception
+end
+
 require 'http/2'
 require 'json'
 require 'coveralls'
